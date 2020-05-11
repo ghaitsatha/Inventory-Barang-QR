@@ -13,6 +13,15 @@ class Barang extends CI_Controller
         $this->load->library('form_validation');
     }
 
+    function CheckNamaBarang($nama_barang){
+        if($this->model->check_namabarang($nama_barang)==''){
+            return true;
+        }else{
+            $this->form_validation->set_message('nama_barang', 'nama_barang'.$nama_barang.'sudah ada');
+            return falsa;
+        }
+    }
+    
     public function index()
     {
         $q = urldecode($this->input->get('q', TRUE));
@@ -207,7 +216,12 @@ class Barang extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('nama_barang', 'nama barang', 'trim|required');
+	$this->form_validation->set_rules('nama_barang', 'nama barang', 'trim|required|is_unique[barang.nama_barang]',
+    array(
+        'required' => 'You have not provided %s.',
+        'is_unique' => 'This %s allready exists.'
+    )
+    );
 	$this->form_validation->set_rules('id_kategori', 'id kategori', 'trim|required');
 	// $this->form_validation->set_rules('tgl_masuk', 'tgl masuk', 'trim|required');
 	$this->form_validation->set_rules('pengirim', 'pengirim', 'trim|required');
@@ -215,6 +229,7 @@ class Barang extends CI_Controller
 	// $this->form_validation->set_rules('barcode', 'barcode', 'trim|required');
 	// $this->form_validation->set_rules('qr', 'qr', 'trim|required');
     $this->form_validation->set_rules('stok', 'stok', 'trim|required');
+
 
 	$this->form_validation->set_rules('id_barang', 'id_barang', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

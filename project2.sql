@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 11 Mei 2020 pada 03.32
+-- Generation Time: 11 Mei 2020 pada 08.18
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -56,7 +56,9 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `tgl_masuk`, `p
 (19, 'ayam', 2, '2020-05-08 11:49:12', 'susi', 1, 'ayam.2020-05-082.1.png', 'ayam.2020-05-082.1.png', NULL),
 (20, 'sabun', 1, '2020-05-11 02:25:59', 'papa', 2, 'sabun.2020-05-111.2.png', 'sabun.2020-05-111.2.png', NULL),
 (21, 'tas', 2, '2020-05-11 02:40:11', 'bunda', 1, 'tas.2020-05-112.1.png', 'tas.2020-05-112.1.png', NULL),
-(22, 'LINGGIS', 1, '2020-05-11 03:17:26', 'LIMBAD', 2, 'LINGGIS.2020-05-111.2.png', 'LINGGIS.2020-05-111.2.png', 20);
+(22, 'LINGGIS', 1, '2020-05-11 03:17:26', 'LIMBAD', 2, 'LINGGIS.2020-05-111.2.png', 'LINGGIS.2020-05-111.2.png', 20),
+(23, 'handphone', 1, '2020-05-11 08:05:46', 'juned', 1, 'handphone.2020-05-111.1.png', 'handphone.2020-05-111.1.png', 10),
+(24, 'hp', 2, '2020-05-11 08:08:32', 'tuyul', 1, 'hp.2020-05-112.1.png', 'hp.2020-05-112.1.png', 5);
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,7 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `kategori`
 --

@@ -80,6 +80,19 @@ class Barang_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    //cek barang
+    function check_namabarang($nama_barang){
+        $this->db->selec('nama_barang');
+        $this->db->where('nama_barang',$nama_barang);
+        $query = $this->db->get('data');
+        $row = $query -> row();
+        if($query->num_rows > 0){
+            return $row->nama_barang;
+        }else{
+            return "";
+        }
+    }
+
 }
 
 /* End of file Barang_model.php */

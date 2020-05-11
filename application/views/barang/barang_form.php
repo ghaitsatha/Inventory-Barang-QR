@@ -40,6 +40,10 @@
             <label for="varchar">Qr <?php echo form_error('qr') ?></label>
             <input type="text" class="form-control" name="qr" id="qr" placeholder="Qr" value="<?php echo $qr; ?>" />
         </div> -->
+        <div class="form-group">
+            <label for="int">Stok Barang <?php echo form_error('stok') ?></label>
+            <input type="text" class="form-control" name="stok" id="stok" placeholder="Stok Barang" value="<?php echo $stok; ?>" />
+        </div>
 	    <input type="hidden" name="id_barang" value="<?php echo $id_barang; ?>" /> 
 	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
 	    <a href="<?php echo site_url('barang') ?>" class="btn btn-default">Cancel</a>

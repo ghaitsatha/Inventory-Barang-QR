@@ -57,6 +57,7 @@ class Barang extends CI_Controller
 		'id_lokasi' => $row->id_lokasi,
 		'barcode' => $row->barcode,
 		'qr' => $row->qr,
+        'stok' => $row->stok,
 	    );
             $this->load->view('barang/barang_read', $data);
         } else {
@@ -82,6 +83,7 @@ class Barang extends CI_Controller
     	    'id_lokasi' => set_value('id_lokasi'),
     	    'barcode' => set_value('barcode'),
     	    'qr' => set_value('qr'),
+            'stok' => set_value('stok'),
 	);
         $this->load->view('barang/barang_form', $data);
     }
@@ -131,6 +133,7 @@ class Barang extends CI_Controller
     		'id_lokasi' => $this->input->post('id_lokasi',TRUE),
     		'barcode' => $namabarcode.'.png',
     		'qr' => $namabarcode.'.png',
+            'stok' => $this->input->post('stok',TRUE),
 	    );
 
             $this->Barang_model->insert($data);
@@ -155,6 +158,7 @@ class Barang extends CI_Controller
 		'id_lokasi' => set_value('id_lokasi', $row->id_lokasi),
 		'barcode' => set_value('barcode', $row->barcode),
 		'qr' => set_value('qr', $row->qr),
+        'stok' => set_value('stok', $row->stok),
 	    );
             $this->load->view('barang/barang_form', $data);
         } else {
@@ -178,6 +182,7 @@ class Barang extends CI_Controller
 		'id_lokasi' => $this->input->post('id_lokasi',TRUE),
 		'barcode' => $this->input->post('barcode',TRUE),
 		'qr' => $this->input->post('qr',TRUE),
+        'stok' => $this->input->post('stok',TRUE),
 	    );
 
             $this->Barang_model->update($this->input->post('id_barang', TRUE), $data);
@@ -209,6 +214,7 @@ class Barang extends CI_Controller
 	$this->form_validation->set_rules('id_lokasi', 'id lokasi', 'trim|required');
 	// $this->form_validation->set_rules('barcode', 'barcode', 'trim|required');
 	// $this->form_validation->set_rules('qr', 'qr', 'trim|required');
+    $this->form_validation->set_rules('stok', 'stok', 'trim|required');
 
 	$this->form_validation->set_rules('id_barang', 'id_barang', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

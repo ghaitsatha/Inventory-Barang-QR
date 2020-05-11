@@ -51,6 +51,7 @@
 		<th>Id Lokasi</th>
 		<th>Barcode</th>
 		<th>Qr</th>
+        <th>Stok Barang</th>
 		<th>Action</th>
             </tr><?php
             foreach ($barang_data as $barang)
@@ -65,6 +66,7 @@
 			<td><?php echo $barang->id_lokasi ?></td>
 			<td><?php echo $barang->barcode ?></td>
 			<td><?php echo $barang->qr ?></td>
+            <td><?php echo $barang->stok ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('barang/read/'.$barang->id_barang),'Read'); 

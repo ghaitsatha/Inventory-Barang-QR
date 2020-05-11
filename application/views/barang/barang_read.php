@@ -19,6 +19,7 @@
 	    <tr><td>Id Lokasi</td><td><?php echo $id_lokasi; ?></td></tr>
 	    <tr><td>Barcode</td><td><?php echo $barcode; ?></td></tr>
 	    <tr><td>Qr</td><td><?php echo $qr; ?></td></tr>
+        <tr><td>Stok Barang</td><td><?php echo $stok; ?></td></tr>
 	    <tr><td></td><td><a href="<?php echo site_url('barang') ?>" class="btn btn-default">Cancel</a></td></tr>
 	</table>
         </body>

@@ -39,6 +39,7 @@ class Barang_model extends CI_Model
 	$this->db->or_like('id_lokasi', $q);
 	$this->db->or_like('barcode', $q);
 	$this->db->or_like('qr', $q);
+    $this->db->or_like('stok', $q);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -54,6 +55,7 @@ class Barang_model extends CI_Model
 	$this->db->or_like('id_lokasi', $q);
 	$this->db->or_like('barcode', $q);
 	$this->db->or_like('qr', $q);
+    $this->db->or_like('stok', $q);
 	$this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }

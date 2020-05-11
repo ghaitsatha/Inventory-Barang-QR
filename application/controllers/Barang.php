@@ -204,11 +204,11 @@ class Barang extends CI_Controller
     {
 	$this->form_validation->set_rules('nama_barang', 'nama barang', 'trim|required');
 	$this->form_validation->set_rules('id_kategori', 'id kategori', 'trim|required');
-	$this->form_validation->set_rules('tgl_masuk', 'tgl masuk', 'trim|required');
+	// $this->form_validation->set_rules('tgl_masuk', 'tgl masuk', 'trim|required');
 	$this->form_validation->set_rules('pengirim', 'pengirim', 'trim|required');
 	$this->form_validation->set_rules('id_lokasi', 'id lokasi', 'trim|required');
-	$this->form_validation->set_rules('barcode', 'barcode', 'trim|required');
-	$this->form_validation->set_rules('qr', 'qr', 'trim|required');
+	// $this->form_validation->set_rules('barcode', 'barcode', 'trim|required');
+	// $this->form_validation->set_rules('qr', 'qr', 'trim|required');
 
 	$this->form_validation->set_rules('id_barang', 'id_barang', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

@@ -23,7 +23,7 @@
             <div class="col-md-1 text-right">
             </div>
             <div class="col-md-3 text-right">
-                <form action="<?php echo site_url('barang/index'); ?>" class="form-inline" method="get">
+                <form action="<?php echo site_url('barang/daftar_barang'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
@@ -42,35 +42,28 @@
             </div>
         </div>
         <table class="table table-bordered" style="margin-bottom: 10px">
+            <thead>
             <tr>
                 <th>No</th>
-		<th>Nama Barang</th>
-		<th>Id Kategori</th>
-		<th>Tgl Masuk</th>
-		<th>Pengirim</th>
-		<th>Id Lokasi</th>
-		<th>Barcode</th>
-		<th>Qr</th>
-        <th>Stok Barang</th>
-        <th>Satuan</th>
-        <th>Fungsi Barang</th>
-		<th>Action</th>
-            </tr><?php
+                <th>Id Barang</th>
+        		<th>Nama Barang</th>
+        		<th>Satuan</th>
+        		<th>Fungsi</th>
+                <th>Jumlah</th>
+        		<th>Action</th>
+            </tr>
+            </thead><?php
             foreach ($barang_data as $barang)
             {
                 ?>
                 <tr>
 			<td width="80px"><?php echo ++$start ?></td>
-			<td><?php echo $barang->nama_barang ?></td>
-			<td><?php echo $barang->id_kategori ?></td>
-			<td><?php echo $barang->tgl_masuk ?></td>
-			<td><?php echo $barang->pengirim ?></td>
-			<td><?php echo $barang->id_lokasi ?></td>
-			<td><?php echo $barang->barcode ?></td>
-			<td><?php echo $barang->qr ?></td>
+			<td><?php echo $barang->id_barang ?></td>
+            <td><?php echo $barang->nama_barang ?></td>
+			<td><?php echo $barang->satuan ?></td>
+			<td><?php echo $barang->fungsi ?></td>
+			<!-- <td><?php echo $barang->pengirim ?></td> -->
             <td><?php echo $barang->stok ?></td>
-            <td><?php echo $barang->satuan ?></td>
-            <td><?php echo $barang->fungsi ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('barang/read/'.$barang->id_barang),'Read'); 

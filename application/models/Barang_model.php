@@ -28,6 +28,14 @@ class Barang_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    // get data by name
+    function get_by_name($nama_barang)
+    {
+        $this->db->select('*');
+        $this->db->where('nama_barang',$nama_barang);
+        return $this->db->get('barang')->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {
@@ -82,15 +90,9 @@ class Barang_model extends CI_Model
 
     //cek barang
     function check_namabarang($nama_barang){
-        $this->db->selec('nama_barang');
+        $this->db->select('nama_barang');
         $this->db->where('nama_barang',$nama_barang);
-        $query = $this->db->get('data');
-        $row = $query -> row();
-        if($query->num_rows > 0){
-            return $row->nama_barang;
-        }else{
-            return "";
-        }
+        return $this->db->get('barang')->num_rows();
     }
 
 }

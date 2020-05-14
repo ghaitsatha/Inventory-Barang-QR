@@ -10,20 +10,20 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">INVENTORY PT ANGKASA PURA SUPPORT</h2>
+        <h2 style="margin-top:0px">Daftar Penyimpanan</h2>
         <div class="row" style="margin-bottom: 10px">
-            <div class="col-md-4">
+           <!--  <div class="col-md-4">
                 <?php echo anchor(site_url('barang/create'),'Create', 'class="btn btn-primary"'); ?>
-            </div>
-            <div class="col-md-4 text-center">
+            </div> -->
+            <!-- <div class="col-md-4 text-center">
                 <div style="margin-top: 8px" id="message">
                     <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
                 </div>
             </div>
             <div class="col-md-1 text-right">
-            </div>
+            </div> -->
             <div class="col-md-3 text-right">
-                <form action="<?php echo site_url('barang/index'); ?>" class="form-inline" method="get">
+                <form action="<?php echo site_url('barang/daftar_simpan'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
@@ -43,17 +43,12 @@
         </div>
         <table class="table table-bordered" style="margin-bottom: 10px">
             <tr>
-                <th>No</th>
+        <th>No</th>
 		<th>Nama Barang</th>
-		<th>Id Kategori</th>
-		<th>Tgl Masuk</th>
-		<th>Pengirim</th>
 		<th>Id Lokasi</th>
-		<th>Barcode</th>
-		<th>Qr</th>
-        <th>Stok Barang</th>
-        <th>Satuan</th>
-        <th>Fungsi Barang</th>
+		<!-- <th>Barcode</th> -->
+		<!-- <th>Stok Barang</th> -->
+        <th>Qr</th>
 		<th>Action</th>
             </tr><?php
             foreach ($barang_data as $barang)
@@ -62,15 +57,11 @@
                 <tr>
 			<td width="80px"><?php echo ++$start ?></td>
 			<td><?php echo $barang->nama_barang ?></td>
-			<td><?php echo $barang->id_kategori ?></td>
-			<td><?php echo $barang->tgl_masuk ?></td>
-			<td><?php echo $barang->pengirim ?></td>
 			<td><?php echo $barang->id_lokasi ?></td>
-			<td><?php echo $barang->barcode ?></td>
-			<td><?php echo $barang->qr ?></td>
-            <td><?php echo $barang->stok ?></td>
-            <td><?php echo $barang->satuan ?></td>
-            <td><?php echo $barang->fungsi ?></td>
+			<!-- <td><?php echo $barang->barcode ?></td> -->
+			
+             <!-- <td><?php echo $barang->stok ?></td> -->
+             <td><img style="width: 5 px height: 5 px;" src="<?php echo base_url().'assets/qr/'.$barang->qr ?>"></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('barang/read/'.$barang->id_barang),'Read'); 

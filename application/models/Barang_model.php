@@ -48,6 +48,10 @@ class Barang_model extends CI_Model
 	$this->db->or_like('barcode', $q);
 	$this->db->or_like('qr', $q);
     $this->db->or_like('stok', $q);
+    $this->db->or_like('satuan', $q);
+    $this->db->or_like('fungsi', $q);
+    $this->db->or_like('pengambil', $q);
+    $this->db->or_like('kirim', $q);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -64,6 +68,10 @@ class Barang_model extends CI_Model
 	$this->db->or_like('barcode', $q);
 	$this->db->or_like('qr', $q);
     $this->db->or_like('stok', $q);
+    $this->db->or_like('satuan', $q);
+    $this->db->or_like('fungsi', $q);
+    $this->db->or_like('pengambil', $q);
+    $this->db->or_like('kirim', $q);
 	$this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }

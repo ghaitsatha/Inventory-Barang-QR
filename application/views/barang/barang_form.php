@@ -61,6 +61,14 @@
             <label for="varchar">Fungsi <?php echo form_error('fungsi') ?></label>
             <input type="text" class="form-control" name="fungsi" id="fungsi" placeholder="Fungsi Barang" value="<?php echo $fungsi; ?>" />
         </div>
+        <div class="form-group">
+            <label for="varchar">Pengambil <?php echo form_error('pengambil') ?></label>
+            <input type="text" class="form-control" name="pengambil" id="fungsi" placeholder="Pengambil Barang" value="<?php echo $pengambil; ?>" />
+        </div>
+        <div class="form-group">
+            <label for="varchar">Alamat Kirim <?php echo form_error('kirim') ?></label>
+            <input type="text" class="form-control" name="kirim" id="kirim" placeholder="Kirim Ke" value="<?php echo $kirim; ?>" />
+        </div>
 	    <input type="hidden" name="id_barang" value="<?php echo $id_barang; ?>" /> 
 	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
 	    <a href="<?php echo site_url('barang') ?>" class="btn btn-default">Cancel</a>

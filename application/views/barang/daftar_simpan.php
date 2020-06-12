@@ -58,10 +58,7 @@
 			<td width="80px"><?php echo ++$start ?></td>
 			<td><?php echo $barang->nama_barang ?></td>
 			<td><?php echo $barang->id_lokasi ?></td>
-			<!-- <td><?php echo $barang->barcode ?></td> -->
-			
-             <!-- <td><?php echo $barang->stok ?></td> -->
-             <td><img style="width: 5 px height: 5 px;" src="<?php echo base_url().'assets/qr/'.$barang->qr ?>"></td>
+            <td><img style="width: 20 px" src="<?php echo base_url().'assets/qr/'.$barang->qr ?>"></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('barang/read/'.$barang->id_barang),'Read'); 

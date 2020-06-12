@@ -16,6 +16,7 @@ class Barang extends CI_Controller
 
     public function daftar_barang(){
         $this->load->view('v_header');
+        $this->load->view('v_menu');
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
         
@@ -44,12 +45,14 @@ class Barang extends CI_Controller
         );
         $this->load->view('barang/daftar_barang',$data);
         $this->load->view('v_footer');
+        $this->load->view('v_script');
 
     }
 
     public function daftar_simpan(){
         // $data['title'] = "Daftar Penyimpanan";
         $this->load->view('v_header');
+        $this->load->view('v_menu');
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
         
@@ -78,6 +81,7 @@ class Barang extends CI_Controller
         );
         $this->load->view('barang/daftar_simpan',$data);
         $this->load->view('v_footer');
+        $this->load->view('v_script');
     }
 
     function CheckNamaBarang($nama_barang){
@@ -92,7 +96,7 @@ class Barang extends CI_Controller
     public function index()
     {
         $this->load->view('v_header');
-        
+        $this->load->view('v_menu');
 
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
@@ -122,6 +126,7 @@ class Barang extends CI_Controller
         );
         $this->load->view('barang/barang_list', $data);
         $this->load->view('v_footer');
+        $this->load->view('v_script');
     }
 
     public function read($id) 
@@ -140,6 +145,8 @@ class Barang extends CI_Controller
         'stok' => $row->stok,
         'satuan' => $row->satuan,
         'fungsi' => $row->fungsi,
+        'pengambil' => $row->pengambil,
+        'kirim' => $row->kirim,
 	    );
             $this->load->view('barang/barang_read', $data);
         } else {
@@ -166,6 +173,8 @@ class Barang extends CI_Controller
             'stok' => set_value('stok'),
             'satuan' => set_value('satuan'),
             'fungsi' => set_value('fungsi'),
+            'pengambil' => set_value('pengambil'),
+            'kirim' => set_value('kirim'),
 	);
         $this->load->view('barang/barang_form', $data);
     }
@@ -234,6 +243,8 @@ class Barang extends CI_Controller
                 'stok' => $this->input->post('stok',TRUE),
                 'satuan' => $this->input->post('satuan',TRUE),
                 'fungsi' => $this->input->post('fungsi',TRUE),
+                'pengambil' => $this->input->post('pengambil',TRUE),
+                'kirim' => $this->input->post('kirim',TRUE),
     	    );
 
                 $this->Barang_model->insert($data);
@@ -262,6 +273,8 @@ class Barang extends CI_Controller
         'stok' => set_value('stok', $row->stok),
         'satuan' => set_value('satuan', $row->satuan),
         'fungsi' => set_value('fungsi', $row->fungsi),
+        'pengambil' => set_value('pengambil', $row->pengambil),
+        'kirim' => set_value('kirim', $row->kirim),
 	    );
             $this->load->view('barang/barang_form', $data);
         } else {
@@ -288,6 +301,8 @@ class Barang extends CI_Controller
         'stok' => $this->input->post('stok',TRUE),
         'satuan' => $this->input->post('satuan',TRUE),
         'fungsi' => $this->input->post('fungsi',TRUE),
+        'pengambil' => $this->input->post('pengambil',TRUE),
+        'kirim' => $this->input->post('kirim',TRUE),
 	    );
 
             $this->Barang_model->update($this->input->post('id_barang', TRUE), $data);
@@ -327,6 +342,8 @@ class Barang extends CI_Controller
     $this->form_validation->set_rules('stok', 'stok', 'trim|required');
     $this->form_validation->set_rules('satuan', 'satuan', 'trim|required');
     $this->form_validation->set_rules('fungsi', 'fungsi', 'trim|required');
+    $this->form_validation->set_rules('pengambil', 'pengambil', 'trim|required');
+    $this->form_validation->set_rules('kirim', 'kirim', 'trim|required');
 
 
 	$this->form_validation->set_rules('id_barang', 'id_barang', 'trim');

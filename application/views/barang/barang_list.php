@@ -10,7 +10,7 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">INVENTORY PT ANGKASA PURA SUPPORT</h2>
+        <h4 style="margin-top:0px">INVENTORY PT ANGKASA PURA SUPPORT</h4>
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
                 <?php echo anchor(site_url('barang/create'),'Create', 'class="btn btn-primary"'); ?>
@@ -49,28 +49,34 @@
 		<th>Tgl Masuk</th>
 		<th>Pengirim</th>
 		<th>Id Lokasi</th>
-		<th>Barcode</th>
-		<th>Qr</th>
+		
         <th>Stok Barang</th>
         <th>Satuan</th>
         <th>Fungsi Barang</th>
+        <th>Pengambil Barang</th>
+        <th>Kirim Ke</th>
+        <th>Barcode</th>
+        <th>Qr</th>
 		<th>Action</th>
             </tr><?php
             foreach ($barang_data as $barang)
             {
                 ?>
                 <tr>
-			<td width="80px"><?php echo ++$start ?></td>
+			<td width="50px"><?php echo ++$start ?></td>
 			<td><?php echo $barang->nama_barang ?></td>
 			<td><?php echo $barang->id_kategori ?></td>
 			<td><?php echo $barang->tgl_masuk ?></td>
 			<td><?php echo $barang->pengirim ?></td>
 			<td><?php echo $barang->id_lokasi ?></td>
-			<td><?php echo $barang->barcode ?></td>
-			<td><?php echo $barang->qr ?></td>
+			
             <td><?php echo $barang->stok ?></td>
             <td><?php echo $barang->satuan ?></td>
             <td><?php echo $barang->fungsi ?></td>
+            <td><?php echo $barang->pengambil ?></td>
+            <td><?php echo $barang->kirim ?></td>
+            <td><?php echo $barang->barcode ?></td>
+            <td><?php echo $barang->qr ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
 				echo anchor(site_url('barang/read/'.$barang->id_barang),'Read'); 

@@ -10,94 +10,16 @@ class Barang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Barang_model');
+        $this->load->model('admin');
         $this->load->library('form_validation');
         $this->load->helper('url');
     }
 
-    public function daftar_barang(){
-        $this->load->view('v_header');
-        $this->load->view('v_menu');
-        $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->input->get('start'));
-        
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'barang/index.html';
-            $config['first_url'] = base_url() . 'barang/index.html';
-        }
-
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->Barang_model->total_rows($q);
-        $barang = $this->Barang_model->get_limit_data($config['per_page'], $start, $q);
-
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
-
-        $data = array(
-            'barang_data' => $barang,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
-            'total_rows' => $config['total_rows'],
-            'start' => $start,
-        );
-        $this->load->view('barang/daftar_barang',$data);
-        $this->load->view('v_footer');
-        $this->load->view('v_script');
-
+    public function setting(){
+        $this->load->view('barang/setting', $data);
     }
 
-    public function daftar_simpan(){
-        // $data['title'] = "Daftar Penyimpanan";
-        $this->load->view('v_header');
-        $this->load->view('v_menu');
-        $q = urldecode($this->input->get('q', TRUE));
-        $start = intval($this->input->get('start'));
-        
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'barang/index.html';
-            $config['first_url'] = base_url() . 'barang/index.html';
-        }
-
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->Barang_model->total_rows($q);
-        $barang = $this->Barang_model->get_limit_data($config['per_page'], $start, $q);
-
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
-
-        $data = array(
-            'barang_data' => $barang,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
-            'total_rows' => $config['total_rows'],
-            'start' => $start,
-        );
-        $this->load->view('barang/daftar_simpan',$data);
-        $this->load->view('v_footer');
-        $this->load->view('v_script');
-    }
-
-    function CheckNamaBarang($nama_barang){
-        if($this->model->check_namabarang($nama_barang)==''){
-            return true;
-        }else{
-            $this->form_validation->set_message('nama_barang', 'nama_barang'.$nama_barang.'sudah ada!');
-            return false;
-        }
-    }
-    
-    public function index()
-    {
-        $this->load->view('v_header');
-        $this->load->view('v_menu');
-
+    public function barang_list(){
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
         
@@ -125,8 +47,126 @@ class Barang extends CI_Controller
             'start' => $start,
         );
         $this->load->view('barang/barang_list', $data);
-        $this->load->view('v_footer');
-        $this->load->view('v_script');
+    }
+
+    public function daftar_barang(){
+        // $this->load->view('v_header');
+        // $this->load->view('v_menu');
+        $q = urldecode($this->input->get('q', TRUE));
+        $start = intval($this->input->get('start'));
+        
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'barang/index.html';
+            $config['first_url'] = base_url() . 'barang/index.html';
+        }
+
+        $config['per_page'] = 10;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->Barang_model->total_rows($q);
+        $barang = $this->Barang_model->get_limit_data($config['per_page'], $start, $q);
+
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+
+        $data = array(
+            'barang_data' => $barang,
+            'q' => $q,
+            'pagination' => $this->pagination->create_links(),
+            'total_rows' => $config['total_rows'],
+            'start' => $start,
+        );
+        $this->load->view('barang/daftar_barang',$data);
+        // $this->load->view('v_footer');
+        // $this->load->view('v_script');
+
+    }
+
+    public function daftar_simpan(){
+        // $data['title'] = "Daftar Penyimpanan";
+        // $this->load->view('v_header');
+        // $this->load->view('v_menu');
+        $q = urldecode($this->input->get('q', TRUE));
+        $start = intval($this->input->get('start'));
+        
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'barang/index.html';
+            $config['first_url'] = base_url() . 'barang/index.html';
+        }
+
+        $config['per_page'] = 10;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->Barang_model->total_rows($q);
+        $barang = $this->Barang_model->get_limit_data($config['per_page'], $start, $q);
+
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+
+        $data = array(
+            'barang_data' => $barang,
+            'q' => $q,
+            'pagination' => $this->pagination->create_links(),
+            'total_rows' => $config['total_rows'],
+            'start' => $start,
+        );
+        $this->load->view('barang/daftar_simpan',$data);
+        // $this->load->view('v_footer');
+        // $this->load->view('v_script');
+    }
+
+    function CheckNamaBarang($nama_barang){
+        if($this->model->check_namabarang($nama_barang)==''){
+            return true;
+        }else{
+            $this->form_validation->set_message('nama_barang', 'nama_barang'.$nama_barang.'sudah ada!');
+            return false;
+        }
+    }
+    
+    public function index()
+    {
+        // $this->load->view('v_header');
+        // $this->load->view('v_menu');
+        // if ($this->admin->logged_id()) {
+        //     $this->load->view("barang");
+        // }
+        // else{
+        //     redirect("login");
+        // }
+        $q = urldecode($this->input->get('q', TRUE));
+        $start = intval($this->input->get('start'));
+        
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'barang/index.html?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'barang/index.html';
+            $config['first_url'] = base_url() . 'barang/index.html';
+        }
+
+        $config['per_page'] = 10;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->Barang_model->total_rows($q);
+        $barang = $this->Barang_model->get_limit_data($config['per_page'], $start, $q);
+
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+
+        $data = array(
+            'barang_data' => $barang,
+            'q' => $q,
+            'pagination' => $this->pagination->create_links(),
+            'total_rows' => $config['total_rows'],
+            'start' => $start,
+        );
+        $this->load->view('barang/barang', $data);
+        // $this->load->view('v_footer');
+        // $this->load->view('v_script');
     }
 
     public function read($id) 
@@ -247,9 +287,10 @@ class Barang extends CI_Controller
                 'kirim' => $this->input->post('kirim',TRUE),
     	    );
 
+                $data['kategori'] = $this->Barang_model->get_kategori();
                 $this->Barang_model->insert($data);
                 $this->session->set_flashdata('message', 'Create Record Success');
-                redirect(site_url('barang'));
+                redirect(site_url('barang/barang_list'));
             }
         }
     }

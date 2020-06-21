@@ -3,17 +3,39 @@
     <head>
         <title></title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
-        <style>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- <style>
             body{
                 padding: 15px;
             }
-        </style>
+        </style> -->
     </head>
     <body>
-        <h2 style="margin-top:0px">INVENTORY PT ANGKASA PURA SUPPORT</h2>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Daftar Barang APS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <!-- <div class="navbar-form navbar-right">
+                <a href="<?php echo base_url() ?>index.php/dashboard/logout" type="submit" class="btn btn-success"><i class="fa fa-sign-out"></i> Logout</a>
+            </div> -->
+        </div>
+        </nav>
+        <!-- <h4 style="margin-top:0px">INVENTORY PT ANGKASA PURA SUPPORT</h4> -->
+        <div class="container" style="margin-top: 80px">
+        <div class="row">
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <?php echo anchor(site_url('barang/create'),'Create', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('barang/create'),'Create', 'class="btn btn-primary"'); ?> -->
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 8px" id="message">
@@ -80,6 +102,7 @@
         </table>
         <div class="row">
             <div class="col-md-6">
+                <a class="btn btn-primary" href="<?php echo base_url('Barang/index') ?>">Kembali</a>
                 <a href="#" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
 	    </div>
             <div class="col-md-6 text-right">

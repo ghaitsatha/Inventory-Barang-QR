@@ -96,6 +96,12 @@ class Barang_model extends CI_Model
         $this->db->delete($this->table);
     }
 
+    //get kategori
+    function get_kategori(){
+        $query = $this->db->query('SELECT * FROM kategori');
+        return $query->result();
+    }
+
     //cek barang
     function check_namabarang($nama_barang){
         $this->db->select('nama_barang');

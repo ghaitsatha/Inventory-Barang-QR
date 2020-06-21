@@ -20,14 +20,13 @@
             <label for="int">Id Kategori <?php echo form_error('id_kategori') ?></label>
             <select class="form-control" name="id_kategori" id="id_kategori" placeholder="Id Kategori" value="<?php echo $id_kategori; ?>" />
                 <option value="">Pilih Kategori</option>
-                <option value="1">Barang Habis Pakai</option>
-                <option value="2">Barang Modal</option>
+                <option value="1">ICT</option>
+                <option value="2">GA</option>
+                <option value="3">FS</option>
+                <option value="4">CS</option>
+                <option value="5">EQUIPMENT</option>
             </select>
         </div>
-	    <!-- <div class="form-group">
-            <label for="date">Tgl Masuk <?php echo form_error('tgl_masuk') ?></label>
-            <input type="text" class="form-control" name="tgl_masuk" id="tgl_masuk" placeholder="Tgl Masuk" value="<?php echo $tgl_masuk; ?>" />
-        </div> -->
 	    <div class="form-group">
             <label for="varchar">Pengirim <?php echo form_error('pengirim') ?></label>
             <input type="text" class="form-control" name="pengirim" id="pengirim" placeholder="Pengirim" value="<?php echo $pengirim; ?>" />
@@ -36,19 +35,16 @@
             <label for="int">Id Lokasi <?php echo form_error('id_lokasi') ?></label>
             <select class="form-control" name="id_lokasi" id="id_lokasi" placeholder="Id Lokasi" value="<?php echo $id_lokasi; ?>" />
                 <option value="">Pilih Lokasi</option>
-                <option value="1">Rak A</option>
-                <option value="2">Rak B</option>
-                <option value="">Rak C</option>
+                <option value="1">Lantai 1 - A</option>
+                <option value="2">Lantai 1 - B</option>
+                <option value="3">Lantai 1 - C</option>
+                <option value="4">Lantai 1 - D</option>
+                <option value="5">Lantai 2 - A</option>
+                <option value="6">Lantai 2 - B</option>
+                <option value="7">Lantai 2 - C</option>
+                <option value="8">Lantai 2 - D</option>
             </select>
         </div>
-	    <!-- <div class="form-group">
-            <label for="varchar">Barcode <?php echo form_error('barcode') ?></label>
-            <input type="text" class="form-control" name="barcode" id="barcode" placeholder="Barcode" value="<?php echo $barcode; ?>" />
-        </div>
-	    <div class="form-group">
-            <label for="varchar">Qr <?php echo form_error('qr') ?></label>
-            <input type="text" class="form-control" name="qr" id="qr" placeholder="Qr" value="<?php echo $qr; ?>" />
-        </div> -->
         <div class="form-group">
             <label for="int">Stok Barang <?php echo form_error('stok') ?></label>
             <input type="text" class="form-control" name="stok" id="stok" placeholder="Stok Barang" value="<?php echo $stok; ?>" />

@@ -1,0 +1,13 @@
+1. import database pada "http://localhost/phpmyadmin/" -> import "project2.sql"
+2. untuk akses "http://localhost/project2/"
+3. untuk tambah barang klik menu "TAMBAH BARANG" -> "CREATE" -> 
+isi form. Jika barang yang di inputkan sama maka, akan muncul halaman
+barang sudah tersedia. 
+4. "Search" untuk mencari barang
+5. menu "DAFTAR BARANG" berisi daftar barang
+6. menu "DAFTAR PENYIMPANAN" berisi daftar simpan barang
+7. menu "setting" masih dalam percobaan
+
+Untuk hasil qr code maupun barcode terdapat pada folder
+"assets" -> "qr" (untuk qrcode)
+"assets" -> "barcode" (untuk barcode)
